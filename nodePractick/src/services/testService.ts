@@ -1,4 +1,4 @@
-const { Test } = require("./model/testModel");
+const { Test } = require("../model/testModel/testModel");
 
 interface IShema {
   userName: string;
@@ -8,7 +8,9 @@ interface IShema {
 
 class ServiceTest {
   async getAllTests() {
-    return await Test.find({});
+    try {
+      return await Test.find({});
+    } catch (error) {}
   }
   async getTestById(id: string) {
     return await Test.findById(id);

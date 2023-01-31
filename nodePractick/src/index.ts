@@ -3,7 +3,8 @@ const moragan = require("morgan");
 const cors = require("cors");
 require("dotenv").config();
 
-const router = require("./router");
+const testRouter = require("./routers/test/testRouter");
+const authRouter = require("./routers/auth/authRouter");
 
 const app: Express = express();
 
@@ -13,7 +14,8 @@ app.use(cors());
 app.use(moragan("dev"));
 app.use(express.json());
 
-app.use("/test", router);
+app.use("/test", testRouter);
+app.use("/auth", authRouter);
 
 app.use((req, res, next) => {
   res.status(404).json({ message: "Not found", status: "Faild" });

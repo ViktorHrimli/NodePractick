@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-const service = require("./testService");
+const service = require("../services/testService");
 
 interface IShema {
   userName: string;
